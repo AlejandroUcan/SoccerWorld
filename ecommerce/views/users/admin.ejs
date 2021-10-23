@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  
+  <body>
+    <%- include('../partials/header') %>
+        
+    <main class="main-content">  
+      <section>
+        <h2 class="flex-product-category">Listado de productos</h2>
+        
+        <div>
+          <button class="admin-button">
+            <a href="/products/upload">
+              <img class="header-icon" src="/images/icons/buttons/agregar.png" alt="botonAgregar">
+            </a>
+          </button>
+        </div>
+
+        
+        <div class="flex-products">
+          <a href="/products/edit">
+            <div>
+              <img class="flex-product-img" src="/images/products/product_1.jpg">
+              <p><b>Chelsea</b> <br> Local 2021/2022</p>
+            </div>
+          </a>
+  
+          <div>
+            <img class="flex-product-img" src="/images/products/product_2.jpg">
+            <p><b>Atlético de Madrid</b> <br> Visitante 2021/2022</p>
+          </div>
+            
+          <div>
+            <img class="flex-product-img" src="/images/products/product_3.jpg">
+            <p><b>Bayern Mûnchen</b> <br> Local 2021/2022</p>
+          </div>
+          
+          <div>
+            <img class="flex-product-img" src="/images/products/product_4.jpg">
+            <p><b>Juventus </b> <br> Visitante 2021/2022</p>
+          </div>
+
+          <div>
+            <img class="flex-product-img" src="/images/products/product_5.jpg">
+            <p><b>LOSC Lille</b> <br> Local 2021/2022</p>
+          </div>
+          
+          <div>
+            <img class="flex-product-img" src="/images/products/product_6.jpg">
+            <p><b>Cruz Azul</b> <br> Visitante 2021/2022</p>
+          </div>
+          
+          <div>
+            <img class="flex-product-img" src="/images/products/product_7.jpg">
+            <p><b>Flamenco</b> <br> Visitante 2021/2022</p>
+          </div>
+
+          <div>
+            <img class="flex-product-img" src="/images/products/product_8.jpg">
+            <p><b>Boca Juniors</b> <br> Visitante 2021/2022</p>
+          </div>
+        </div>      
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

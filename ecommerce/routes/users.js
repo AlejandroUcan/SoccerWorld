@@ -9,5 +9,9 @@ router.get('/register', function(req, res, next) {
 router.get('/login', function(req, res, next) {
   res.render('users/login', { title: 'login' });
 });
+/* GET users admin controller. */
+router.get('/admin', function(req, res, next) {
+  res.render('users/admin', { title: 'login' });
+});
 
 module.exports = router;
