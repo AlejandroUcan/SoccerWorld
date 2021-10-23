@@ -1,0 +1,1 @@
+En el primer sprint se pudieron completar todas las consignas solicitadas. Aunque no se hicieron las consignas opcionales.
