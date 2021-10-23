@@ -18,7 +18,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">SoccerWorld</a>
+        <a class="navbar-brand" href="/">SoccerWorld</a>
               
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -35,129 +35,132 @@
             
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Categoría" aria-label="Search">
-            <button class="footer-icons-social-btn">
-              <a href="https://www.instagram.com/?hl=es" target="_blank">
-                <img class="social-dimensions" src="/img/icons/buttons/buscar.png" alt="iconoCarrito">
-              </a>
-            </button>
-            <button class="footer-icons-social-btn">
-              <a href="https://www.instagram.com/?hl=es" target="_blank">
-                <img class="social-dimensions" src="/img/icons/buttons/carrito.png" alt="iconoCarrito">
-              </a>
-            </button>
-            <button class="footer-icons-social-btn">
-              <a href="https://www.instagram.com/?hl=es" target="_blank">
-                <img class="social-dimensions" src="/img/icons/buttons/user.png" alt="logoInstagram">
-              </a>
-            </button>
           </form>
+
+          <button class="header-button">
+            <a href="/productos/detalles"> 
+              <img class="header-icon" src="/img/icons/buttons/buscar.png" alt="botonBuscar">
+            </a>
+          </button>
+
+          <button class="header-button">
+            <a href="/carrito/productos">
+              <img class="header-icon" src="/img/icons/buttons/carrito.png" alt="botonCarrito">
+            </a>
+          </button>
+
+          <button class="header-button">
+            <a href="/usuarios/acceso">
+              <img class="header-icon" src="/img/icons/buttons/user.png" alt="botonUsuario">
+            </a>
+          </button>
         </div>
       </nav>
     </header>
         
-    <main class="main-content">
-      <aside>
-        <div>
-          <div class="bg-dark p-4">
-            <h4 class="text-white">Premier League</h4>
-            <span class="text-muted">Inglaterra.</span>
-            <hr>
+    <main class="main-content form-content">          
+      <section>
+        <h2 class="form-title">Registro</h2>
 
-            <h4 class="text-white">La Liga</h4>
-            <span class="text-muted">España.</span>
-            <hr>
+        <hr>
 
-            <h4 class="text-white">Bundesliga</h4>
-            <span class="text-muted">Alemania.</span>
-            <hr>
-              
-            <h4 class="text-white">Calcio</h4>
-            <span class="text-muted">Italia.</span>
-            <hr>
-
-            <h4 class="text-white">Ligue 1</h4>
-            <span class="text-muted">Francia.</span>
-            <hr>
-
-            <h4 class="text-white">Liga MX</h4>
-            <span class="text-muted">México.</span>
-            <hr>
-
-            <h4 class="text-white"> Brasileirão</h4>
-            <span class="text-muted"> Brasil.</span>
-            <hr>
-
-            <h4 class="text-white">Superliga Argentina</h4>
-            <span class="text-muted">Argentina</span>
+        <form>
+          <div class="form-group">
+            <label for="inputEmail4">Usuario</label>
+            <input type="text" class="form-control" id="inputEmail4">
           </div>
-        </div>
-      </aside>
+
+          <div class="form-group">
+            <label for="inputAddress">Email</label>
+            <input type="email" class="form-control" id="inputAddress">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Contraseña</label>
+              <input type="password" class="form-control" id="inputEmail4">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Confirmar contraseña</label>
+              <input type="password" class="form-control" id="inputPassword4">
+            </div>
+          </div>
+
+          <hr>
           
-      <section>     
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Foto de perfil</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+
+          <hr>
+
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
       </section>
     </main>
         
     <footer>
       <div class="footer-content bg-dark">
-        <div class="footer-icons">
-          <div class="footer-icons-social">
-            <button class="footer-icons-social-btn">
-              <a href="https://m.facebook.com/?locale2=es_LA" target="_blank">
-                <img class="social-dimensions" src="/img/icons/rrss/facebook.png" alt="logoFacebook">
-              </a>
-            </button>
-            <button class="footer-icons-social-btn">
-              <a href="https://twitter.com/?lang=es" target="_blank">
-                <img class="social-dimensions" src="/img/icons/rrss/twitter.png" alt="logoTwitter">
-              </a>
-            </button>
-            <button class="footer-icons-social-btn">
-              <a href="https://www.instagram.com/?hl=es" target="_blank">
-                <img class="social-dimensions" src="/img/icons/rrss/instagram.png" alt="logoInstagram">
-              </a>
-            </button>
-          </div>
+        <div class="footer-icons-social">
+          <button class="footer-icons-social-btn">
+            <a href="https://m.facebook.com/?locale2=es_LA" target="_blank">
+              <img class="footer-icon-img-social" src="/img/icons/rrss/facebook.png" alt="logoFacebook">
+            </a>
+          </button>
+            
+          <button class="footer-icons-social-btn">
+            <a href="https://twitter.com/?lang=es" target="_blank">
+              <img class="footer-icon-img-social" src="/img/icons/rrss/twitter.png" alt="logoTwitter">
+            </a>
+          </button>
+          
+          <button class="footer-icons-social-btn">
+            <a href="https://www.instagram.com/?hl=es" target="_blank">
+              <img class="footer-icon-img-social" src="/img/icons/rrss/instagram.png" alt="logoInstagram">
+            </a>
+          </button>
+        </div>
       
-          <div class="footer-icons-brand">
-            <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/adidas.png" alt="logoAdidas">
+        <div class="footer-icons-brand">
+          <div class="footer-icons-brand-logo">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/adidas.png" alt="logoAdidas">
             </div>
             <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/reebok.png" alt="logoReebok">
-            </div>
-          
-            <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/underarmour.png" alt="logoUnderArmour"></div>
-          
-            <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/converse.png" alt="logoConverse">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/reebok.png" alt="logoReebok">
             </div>
           
             <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/vans.png" alt="logoVans">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/underarmour.png" alt="logoUnderArmour"></div>
+          
+            <div class="footer-icons-brand-logo">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/converse.png" alt="logoConverse">
             </div>
           
             <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/atletica.png" alt="logoAtlética">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/vans.png" alt="logoVans">
             </div>
           
             <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/puma.png" alt="logoPuma">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/atletica.png" alt="logoAtlética">
             </div>
           
             <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/pirma.png" alt="logoPirma">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/puma.png" alt="logoPuma">
             </div>
           
             <div class="footer-icons-brand-logo">
-              <img class="brands-dimensions" src="/img/icons/brands/joma.png" alt="logoJoma">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/pirma.png" alt="logoPirma">
             </div>
-      </div>
-  </div>
+          
+            <div class="footer-icons-brand-logo">
+              <img class="footer-icon-img-brand" src="/img/icons/brands/joma.png" alt="logoJoma">
+            </div>
+          </div>
 
-  <div>
-      <p>(C) SoccerWorld Todos los derechos reservados, 2022</p>
-  </div>
+          <div>
+            <p>(C) <b>SoccerWorld</b> Todos los derechos reservados, 2022</p>
+        </div>
       </div>
     </footer>
   </body>

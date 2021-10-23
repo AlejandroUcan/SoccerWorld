@@ -1,13 +1,12 @@
+const path = require('path');
+
 const controlador = {
-    index: (req, res) => {
-        res.send('Index de productos');
-    }, 
-    show: (req, res) => {
-        res.send('Show de productos');
-    },
-    create: (req, res) => {
-        res.send('Create de productos');
-    }
+  registro: (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/register.html'));
+  },
+  login: (req,res) =>{
+    res.sendFile(path.join(__dirname, '../views/login.html'));
+  }
 };
 
 module.exports = controlador;
