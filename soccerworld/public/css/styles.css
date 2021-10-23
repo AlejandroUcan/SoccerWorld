@@ -87,7 +87,6 @@
 .flex-product-detail {
     display: flex;
     padding: 30px;
-    justify-content: center;
 }
 
 .flex-product-detail-img {
@@ -108,6 +107,21 @@
 /*-------------------------------------------------------------------------------------*/
 
 /*---------------------------------------  main ---------------------------------------*/
+.flex-cart-detail{
+    display:flex;
+    padding: 10px;
+    justify-items: center;
+}
+
+.flex-cart-contain {
+    padding: 60px;
+    margin: 10px 50px;
+}
+
+.flex-cart-detail-img {
+    height: 50vh;
+}
+
 /*-------------------------------------------------------------------------------------*/
 
 /*---------------------------------------  main ---------------------------------------*/
