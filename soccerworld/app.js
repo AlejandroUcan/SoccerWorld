@@ -8,9 +8,9 @@ app.listen(3000, () => {
 
 app.use(express.static('public'));
 
-app.use('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'views/index.html'));
-});
 const rutasProductos = require('./routes/productos');
 app.use('/productos', rutasProductos);
 
+app.use('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/index.html'));
+});
