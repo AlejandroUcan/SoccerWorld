@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  
+  <body>
+    <%- include('../partials/header') %>
+
+    <main class="main-content">
+        <%- include('../partials/aside') %>
+        
+      <section class="flex-product-detail">
+        <article>
+          <div>
+            <h2><b>Chelsea</b></h2>
+            <img class="flex-product-detail-img" src="/images/products/product_1.jpg">
+          </div>
+        </article>
+      
+        <article>
+          <h3>Local 2021/2022</h3>
+          <h5>$900 MX</h5>
+                
+          <hr>
+          
+          <h4>Tallas disponibles</h4>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> XS
+            </label>
+            
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> S
+            </label>
+            
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> M
+            </label>
+    
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> L
+            </label>
+    
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> XL
+            </label>
+    
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> XXL
+            </label>
+          </div>
+          
+          <hr>
+          
+          <h4>Cantidad</h4>
+          <div class="input-group">       
+            <input type="text" class="form-control" aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
+                  
+            <div class="input-group-append" id="button-addon4">
+              <button class="btn btn-outline-secondary" type="button">+</button>
+              <button class="btn btn-outline-secondary" type="button">-</button>
+            </div>
+          </div>
+      
+          <hr>
+      
+          <button type="button" class="btn btn-primary btn-lg">Comprar</button>
+        </article>
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

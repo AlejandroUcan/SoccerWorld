@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  
+  <body>
+    <%- include('../partials/header') %>
+    
+    <main class="main-content">
+      <%- include('../partials/aside') %>
+      
+      <section class="flex-cart-detail">
+        <article class="flex-cart-contain">
+          <div>
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Premier League - Chelsea FC
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <div>
+                        <img class="flex-cart-detail-img" src="/images/products/product_1.jpg">
+                        <p>Jersey Local - 2021/2022 <br>
+                        XL <br>
+                        $900 MXN</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        LOSC Lille
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div>
+                            <img class="flex-cart-detail-img" src="/images/products/product_5.jpg">
+                            <p>Jersey Local - 2021/2022 <br>
+                            XL <br>
+                            $900 MXN</p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+          </div>
+        </article>
+      
+        <article class="flex-cart-contain">
+          <div>
+            <div class="card text-center">
+              <div class="card-header">
+                <h3>Total</h3>
+              </div>
+              
+              <div class="card-body">
+                <h4 class="card-title">$1800 MXN</h4>
+
+                <hr>
+
+                <h5>Forma de pago</h5>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> PayPal
+                  </label>
+                    
+                  <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> Masterd Card
+                  </label>
+                    
+                  <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="option3" autocomplete="off"> OxxoPay
+                  </label>
+                </div>
+                
+                <hr>
+                
+                <a href="#" class="btn btn-primary">Pagar</a>
+              </div>
+
+              <div class="card-footer text-muted">
+                SoccerWorld
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+        
+    <%- include('../partials/footer') %>
+  </body>
+</html>
