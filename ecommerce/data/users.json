@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "username":"",
+        "email":"xheaney0@t-online.de",
+        "password":"WbuW39",
+        "rol":"user",
+        "imagen":"user_1.jpg"
+    },
+    {
+        "id":2,
+        "username":"",
+        "email":"xheaney0@t-online.de",
+        "password":"WbuW39",
+        "rol":"admin",
+        "imagen":"user_2.jpg"
+    },
+    {
+        "id":3,
+        "username":"",
+        "email":"xheaney0@t-online.de",
+        "password":"WbuW39",
+        "rol":"user",
+        "imagen":"user_3.jpg"
+    }
+]

@@ -7,10 +7,10 @@
         
     <main class="main-content form-content">          
       <section>
-        <h2 class="form-title">Edición de Producto</h2>
+        <h2 class="form-title">Registro de Producto</h2>
         <hr>
-        
-        <form method="POST" action="/products/:id?_method=PUT">
+
+        <form method="POST" action="/products">
           <div class="form-group">
             <label for="equipo">Equipo</label>
             <input type="text" class="form-control" id="equipo" name="equipo">
@@ -68,7 +68,7 @@
             <input type="file" class="form-control-file" id="imagen" name="imagen">
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+          <button type="submit" class="btn btn-primary btn-lg">Comprar</button>
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="submit" class="product-button">
               <img class="header-icon" src="/images/icons/buttons/agregar.png" alt="botonAgregar">
@@ -85,5 +85,3 @@
     <%- include('../partials/footer') %>
   </body>
 </html>
-
-
