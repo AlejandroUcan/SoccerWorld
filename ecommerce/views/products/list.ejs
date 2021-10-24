@@ -7,8 +7,8 @@
         
     <main class="main-content">  
       <section>
-        <h2 class="page-title">Listado de productos</h2>
-        <div>
+        <div class="product-list-content">
+          <h2 class="page-title">Listado de productos</h2>
           <button class="product-button">
             <a href="/products/create">
               <img class="header-icon" src="/images/icons/buttons/agregar.png" alt="botonAgregar">
@@ -18,60 +18,23 @@
         <hr>
 
         <div class="flex-products">
-          <div>
-            <a href="/products/6">
-              <img class="flex-product-img" src="/images/products/product_1.jpg">
-              <p><b>Chelsea</b> <br> Local 2021/2022</p>
-            </a>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button class="product-button">
-                <a href="/products/6/edit">
-                  <img class="header-icon" src="/images/icons/buttons/agregar.png" alt="botonAgregar">
-                </a>
-              </button>
-              
-              <form method="POST" action="/products/:id?_method=DELETE">
-              <button type="submit" class="product-button">
-                  <img class="header-icon" src="/images/icons/buttons/agregar.png" alt="botonAgregar">
-              </button>
-            </form>
+          <% for (let product of products) { %> 
+            <div class="list-products-options">
+              <a href="/products/<%= product.id %>">
+                <img class="flex-product-img" src="/images/products/<%= product.imagen %>" alt="<%= product.imagen %>">
+                <p><b><%= product.equipo %></b> <br> <%= product.tipo %> <%= product.temporada %></p>
+              </a>
+
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <form method="POST" action="/products/<%= product.id %>?_method=DELETE">
+                  <a href="/products/<%= product.id %>/edit">
+                    <button type="button" class="btn btn-warning">Editar</button>
+                  </a>
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+              </div>
             </div>
-          </div>
-  
-          <div>
-            <img class="flex-product-img" src="/images/products/product_2.jpg">
-            <p><b>Atlético de Madrid</b> <br> Visitante 2021/2022</p>
-          </div>
-            
-          <div>
-            <img class="flex-product-img" src="/images/products/product_3.jpg">
-            <p><b>Bayern Mûnchen</b> <br> Local 2021/2022</p>
-          </div>
-          
-          <div>
-            <img class="flex-product-img" src="/images/products/product_4.jpg">
-            <p><b>Juventus </b> <br> Visitante 2021/2022</p>
-          </div>
-
-          <div>
-            <img class="flex-product-img" src="/images/products/product_5.jpg">
-            <p><b>LOSC Lille</b> <br> Local 2021/2022</p>
-          </div>
-          
-          <div>
-            <img class="flex-product-img" src="/images/products/product_6.jpg">
-            <p><b>Cruz Azul</b> <br> Visitante 2021/2022</p>
-          </div>
-          
-          <div>
-            <img class="flex-product-img" src="/images/products/product_7.jpg">
-            <p><b>Flamenco</b> <br> Visitante 2021/2022</p>
-          </div>
-
-          <div>
-            <img class="flex-product-img" src="/images/products/product_8.jpg">
-            <p><b>Boca Juniors</b> <br> Visitante 2021/2022</p>
-          </div>
+          <% } %> 
         </div>      
       </section>
     </main>

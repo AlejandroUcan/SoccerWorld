@@ -1,6 +1,12 @@
+const fs = require('fs');
+const path = require('path');
+
 const controller = {
   list: (req, res, next) => {
-    res.render('products/list');
+    const datosEnJSON = fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf8');    
+    let listaDeProductos = JSON.parse(datosEnJSON);
+
+    res.render('products/list', { products: listaDeProductos });
   },
   create: (req, res, next) => {
     res.render('products/create');
@@ -9,35 +15,111 @@ const controller = {
     res.render('products/details');
   },
   add: (req, res, next) => {
-    console.log(req.body);
+    try {
+      const datosEnJSON = fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf8');    
+      let listaDeProductos = JSON.parse(datosEnJSON);
+      
+      let product = {
+        id: req.body.id,
+        equipo: req.body.equipo,
+        tipo: req.body.tipo,
+        temporada: req.body.temporada,
+        liga: req.body.liga,
+        marca: req.body.marca,
+        categoria: req.body.categoria,
+        precio: req.body.precio,
+        imagen:req.body.imagen
+      };
+      listaDeProductos.push(product); 
 
-    res.redirect('products/list');
+      let datosConvertidos = JSON.stringify(listaDeProductos);
+      
+      fs.writeFileSync(path.join(__dirname, '../data/products.json'), datosConvertidos, (err) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            console.log("escritura exitosa");
+        }
+      }); 
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    res.redirect('/products');
   },
   edit: (req, res, next) => {
+      let id = req.params.id;
       
-      let idUser = req.params.id;
-      console.log(idUser);
+      const datosEnJSON = fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf8');    
+      let listaDeProductos = JSON.parse(datosEnJSON);
+      
+      let product = listaDeProductos.filter(product => product.id == id);
+      console.log(product);
 
-      let users = [
-        {id: 1, name: 'Dario'},
-        {id: 2, name: 'Javier'},
-        {id: 3, name: 'Maru'},
-        {id: 4, name: 'Ale'},
-        {id: 5, name: 'Alan'}
-      ];
-
-      let userToEdit = users[idUser]; 
-
-      res.render('products/edit', {userToEdit: userToEdit});
+      res.render('products/edit', {product: product});
   },
   update: (req, res, next) => {
-    console.log(req.body);
+    let id = req.params.id;
+
+    try {
+      const datosEnJSON = fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf8');    
+      let listaDeProductos = JSON.parse(datosEnJSON);
+
+      listaDeProductos.forEach(function(element) {
+        if(element.id == id) {
+          element.equipo = req.body.equipo,
+          element.tipo = req.body.tipo,
+          element.temporada = req.body.temporada,
+          element.liga = req.body.liga,
+          element.marca = req.body.marca,
+          element.categoria = req.body.categoria,
+          element.precio = req.body.precio,
+          element.imagen = req.body.imagen
+        }
+      })
+
+      let datosConvertidos = JSON.stringify(listaDeProductos);
+      
+      fs.writeFileSync(path.join(__dirname, '../data/products.json'), datosConvertidos, (err) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            console.log("escritura exitosa");
+        }
+      }); 
+    } catch (error) {
+      console.log(error.message);
+    }
 
     res.redirect('/products');
   },
   delete: (req, res, next) => {
-    console.log('DELETE');
-    res.redirect('/');
+    let id = req.params.id;
+
+    try {
+      const datosEnJSON = fs.readFileSync(path.join(__dirname, '../data/products.json'), 'utf8');    
+      let listaDeProductos = JSON.parse(datosEnJSON);
+
+      listaDeProductos.forEach(function(element, index) {      
+        if(element.id == id) {
+          listaDeProductos.splice(index, 1);
+        }
+      }); 
+
+      let datosConvertidos = JSON.stringify(listaDeProductos);
+      
+      fs.writeFileSync(path.join(__dirname, '../data/products.json'), datosConvertidos, (err) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            console.log("escritura exitosa");
+        }
+      }); 
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    res.redirect('/products');
   }
 };
 

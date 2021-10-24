@@ -5,80 +5,110 @@
   <body>
     <%- include('../partials/header') %>
         
-    <main class="main-content form-content">          
+    <main class="main-content form-content"> 
+               
       <section>
-        <h2 class="form-title">Edición de Producto</h2>
+        <h2>Edición del producto</h2>
+        <br>
+        <h5><b><%= product[0].equipo %></b></h5>
         <hr>
-        
-        <form method="POST" action="/products/:id?_method=PUT">
-          <div class="form-group">
-            <label for="equipo">Equipo</label>
-            <input type="text" class="form-control" id="equipo" name="equipo">
-          </div>
 
-          <div class="form-group">
-            <label for="descripcion">Descripción</label>
-            <textarea class="form-control" id="descripcion" rows="3" name="descripcion"></textarea>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="liga">Liga</label>
-              <select id="liga" class="form-control" name="liga">
-                <option selected>Liga MX</option>
-                <option>Premier League</option>
-                <option>La Liga</option>
-                <option>Bundesliga</option>
-                <option>Calcio</option>
-                <option>Ligue 1</option>
-                <option>Brasileirão</option>
-                <option>Superliga Argentina</option>
-              </select>
+        <div class="flex-product-edit">
+          <article>
+            <div>
+              <img class="flex-product-edit-img" src="/images/products/<%= product[0].imagen %>">
             </div>
-            
-            <div class="form-group col-md-6">
-              <label for="marca">Marca</label>
-              <select id="marca" class="form-control" name="marca">
-                <option selected>Nike</option>
-                <option>Adidas</option>
-                <option>Reebok</option>
-                <option>Under Armour</option>
-                <option>Converse</option>
-                <option>Vans</option>
-                <option>Atlética</option>
-                <option>Puma</option>
-                <option>Pirma</option>
-                <option>Joma</option>
-              </select>
-            </div>
-          </div>
+          </article>
 
-          <div class="form-group">
-            <label for="categoria">Categoría</label>
-            <select class="form-control" id="categoria" name="categoria">
-                <option selected>Unisex</option>
-                <option>Hombre</option>
-                <option>Mujer</option>
-                <option>Kids</option>
-            </select>
-          </div>
-            
-          <div class="form-group">
-            <label for="imagen">Imagen</label>
-            <input type="file" class="form-control-file" id="imagen" name="imagen">
-          </div>
+          <article>
+            <form method="POST" action="/products/<%= product[0].id %>?_method=PUT">
+              <div class="form-group">
+                <label for="equipo">Equipo</label>
+                <input type="text" class="form-control" id="equipo" name="equipo" value="<%= product[0].equipo %>">
+              </div>
+    
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="liga">Liga</label>
+                  <select id="liga" class="form-control" name="liga">
+                    <option selected><%= product[0].liga %></option>
+                    <option>Premier League</option>
+                    <option>La Liga</option>
+                    <option>Bundesliga</option>
+                    <option>Calcio</option>
+                    <option>Ligue 1</option>
+                    <option>Liga MX</option>
+                    <option>Brasileirão</option>
+                    <option>Superliga Argentina</option>
+                    <option>MLS</option>
+                  </select>
+                </div>
+    
+                <div class="form-group col-md-6">
+                  <label for="marca">Marca</label>
+                  <select id="marca" class="form-control" name="marca">
+                    <option selected><%= product[0].marca %></option>
+                    <option>Adidas</option>
+                    <option>Nike</option>
+                    <option>Atlética</option>
+                    <option>Puma</option>
+                    <option>Pirma</option>
+                    <option>Joma</option>
+                  </select>
+                </div>
+              </div>
+    
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="tipo">Tipo</label>
+                  <select id="tipo" class="form-control" name="tipo">
+                    <option selected><%= product[0].tipo %></option>
+                    <option>Local</option>
+                    <option>Visitante</option>
+                    <option>Alternativo</option>
+                  </select>
+                </div>
+    
+                <div class="form-group col-md-6">
+                  <label for="temporada">Temporada</label>
+                  <select id="temporada" class="form-control" name="temporada">
+                    <option selected><%= product[0].temporada %></option>
+                    <option>2018/2019</option>
+                    <option>2019/2020</option>
+                    <option>2020/2021</option>
+                    <option>2021/2022</option>
+                    <option>2022/2023</option>
+                  </select>
+                </div>
+              </div>
+    
+              <div class="form-group">
+                <label for="categoria">Categoría</label>
+                <select class="form-control" id="categoria" name="categoria">
+                    <option selected><%= product[0].categoria %></option>
+                    <option>Hombre</option>
+                    <option>Mujer</option>
+                    <option>Unisex</option>
+                    <option>Kids</option>
+                </select>
+              </div>
 
-          <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
-          <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="submit" class="product-button">
-              <img class="header-icon" src="/images/icons/buttons/agregar.png" alt="botonAgregar">
-            </button>
-            
-            <button type="reset" class="product-button">
-              <img class="header-icon" src="/images/icons/buttons/agregar.png" alt="botonAgregar">
-            </button>
-          </div>
-        </form>
+              <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="text" class="form-control" id="precio" name="precio" value="<%= product[0].precio %>">
+              </div>
+                
+              <div class="form-group">
+                <label for="imagen">Imagen</label>
+                <%= product[0].imagen %>
+                <input type="file" class="form-control-file" id="imagen" name="imagen">
+              </div>
+              <hr>
+    
+              <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+            </form>
+          </article>
+        </div>
       </section>
     </main>
      

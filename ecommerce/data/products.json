@@ -1,13 +1,1 @@
-[
-    {
-        "id":1,
-        "equipo":"",
-        "descripcion":"Xenos",
-        "liga":"Heaney",
-        "marca":"",
-        "categoria":"xheaney0@t-online.de",
-        "precio":"",
-        "imagen":"user_1.jpg"
-    }
-]
-
+[{"id":"6","equipo":"Cruz Azul","tipo":"Visitante","temporada":"2022/2023","liga":"Liga MX","marca":"Joma","categoria":"Kids","imagen":"product_6.jpg"}]
