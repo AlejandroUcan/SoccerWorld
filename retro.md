@@ -9,3 +9,7 @@ realizaron por medio del uso de bootstrap y HTML5 (HTML, CSS).
 Inicio de Sprint4 - Retroalimentación del sprint3
 En el tercer sprint se lograron las consignas, sin embargo, se complicó por la poca experiencia en el ejs, aunque por medio de la práctica en Playground se puede mejorar.
 
+Inicio de Sprint5 - Retroalimentación del sprint4
+En el cuarto sprint se logró el CRUD de productos, por medio de funciones de array, además de
+la obtención de datos por EJS
+
