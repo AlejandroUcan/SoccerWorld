@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head'); %>
+  
+  <body>
+    <%- include('../partials/navbar'); %>
+	
+	<!-- Register-Form -->
+  <section class="details-page">
+    <% if(product != null) { %>  
+      <article class="product-edit-img">
+        <div>
+          <h2><b><%= product.equipo %></b></h2>
+          <br>
+          <img class="details-page-img" src="/images/products/<%= product.imagen %>">
+        </div>
+      </article>
+    <% } %>
+
+    <article>
+      <div class="container my-5">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <h2>Edición de producto</h2>
+            <hr>
+            <form method="POST" action="/product/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-md-6 my-1">
+                  <div class="form-group">
+                    <label><b>Equipo:</b></label>
+                    <input 
+                    type="text" 
+                    name="equipo" 
+                    class="form-control <%= locals.errors && errors.equipo ? 'is-invalid' : null %>"
+                    <% if(product != null) { %>
+                      value= "<%= product.equipo %>" 
+                    <% } else { %>
+                      value="<%= locals.oldData ? oldData.equipo : null %>"
+                    <% } %>
+                    >
+                    
+                    <% if (locals.errors && errors.equipo) { %>
+                      <div class="text-danger">
+                      <%= errors.equipo.msg %> 
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 my-1">
+                  <div class="form-group">
+                    <label><b>Liga:</b></label>
+
+                    <select 
+                      name="liga" 
+                      class="form-select <%= locals.errors && errors.liga ? 'is-invalid' : null %>"
+                      > 
+                                       
+                      <% if(product != null) { %>
+                        <option value="<%= product.liga %>"><%= product.liga %></option>  
+                      <% } else { %>
+                        <option value="">Elige una liga</option> 
+                      <% } %>
+      
+                      
+                      <%  
+                        let ligas = ['Premier League', 'La Liga', 'Bundesliga', 'Calcio', 'Ligue 1', 'Liga MX',
+                          'Brasileirão', 'Liga Argentina', 'MLS', 'Eredivise', 'Primeira Liga', 'Superliga UEFA'];
+                      %>
+                      <% for (const liga of ligas) { %>
+                        <option 
+                          value="<%= liga %>"
+                          <%= locals.oldData && (liga === oldData.liga) ? 'selected' : null %> 
+                        > <%= liga %> </option>
+                      <% } %> 
+                    </select>
+
+                    <% if (locals.errors && errors.liga) { %>
+                      <div class="text-danger">
+                        <%= errors.liga.msg %>
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 my-1">
+                  <div class="form-group">
+                    <label><b>Marca:</b></label> 
+                    
+                    <select 
+                      name="marca" 
+                      class="form-select <%= locals.errors && errors.marca ? 'is-invalid' : null %>"
+                    >
+                      <% if(product != null) { %>
+                        <option value="<%= product.marca %>"><%= product.marca %></option>  
+                      <% } else { %>  
+                      <option value="">Elige una marca..</option>
+                      <% } %>
+                    
+                      <%  
+                        let marcas = ['Adidas', 'Nike', 'Pirma', 'Joma'];
+                      %>
+                      <% for (const marca of marcas) { %>
+                        <option 
+                          value="<%= marca %>"
+                          <%= locals.oldData && (marca === oldData.marca) ? 'selected' : null %> 
+                        > <%= marca %> 
+                        </option>
+                      <% } %>
+                    </select>
+                      
+                    <% if (locals.errors && errors.marca) { %>
+                      <div class="text-danger">
+                        <%= errors.marca.msg %>
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 my-1">
+                  <div class="form-group">
+                    <label><b>Tipo:</b></label> 
+                    
+                    <select 
+                      name="tipo" 
+                      class="form-select <%= locals.errors && errors.tipo ? 'is-invalid' : null %>"
+                    >
+                      <% if(product != null) { %>
+                        <option value="<%= product.tipo %>"><%= product.tipo %></option> 
+                      <% } else { %>
+                        <option value="">Elige un tipo..</option> 
+                      <% } %>
+                      
+                      <%  
+                        let tipos = ['Local', 'Visitante', 'Alternativo'];
+                      %>
+                      <% for (const tipo of tipos) { %>
+                        <option 
+                          value="<%= tipo %>"
+                          <%= locals.oldData && (tipo === oldData.tipo) ? 'selected' : null %> 
+                        > <%= tipo %> 
+                        </option>
+                      <% } %>
+                    </select>
+                      
+                    <% if (locals.errors && errors.tipo) { %>
+                      <div class="text-danger">
+                        <%= errors.tipo.msg %>
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+
+                <div class="col-md-6 my-1">
+                  <div class="form-group">
+                    <label><b>Temporada:</b></label> 
+                    <select 
+                      name="temporada" 
+                      class="form-select <%= locals.errors && errors.temporada ? 'is-invalid' : null %>"
+                    >
+                      
+                      
+                      <% if(product != null) { %>
+                        <option value="<%= product.temporada %>"><%= product.temporada %></option>
+                      <% } else { %>
+                        <option value="">Elige una temporada..</option>
+                      <% } %>
+                      
+                      <%  
+                        let temporadas = ['2018/2019', '2019/2020', '2020/2021', '2021/2022', '2022/2023'];
+                      %>
+                      <% for (const temporada of temporadas) { %>
+                        <option 
+                          value="<%= temporada %>"
+                          <%= locals.oldData && (temporada === oldData.temporada) ? 'selected' : null %> 
+                        > <%= temporada %> 
+                        </option>
+                      <% } %>
+                    </select>
+                      
+                    <% if (locals.errors && errors.temporada) { %>
+                      <div class="text-danger">
+                        <%= errors.temporada.msg %>
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+
+                <div class="col-md-6 my-1">
+                  <div class="form-group">
+                    <label><b>Categoría:</b></label>
+                  
+                    <select 
+                      name="categoria" 
+                      class="form-select <%= locals.errors && errors.tipo ? 'is-invalid' : null %>"
+                    >
+                        
+                      <% if(product != null) { %>
+                        <option value="<%= product.categoria %>"><%= product.categoria %></option>
+                      <% } else { %>
+                        <option value="">Elige una categoria..</option>
+                      <% } %>
+                      
+                      <%  
+                        let categorias = ['Hombres', 'Mujeres', 'Niños', 'Unisex'];
+                      %>
+                      <% for (const categoria of categorias) { %>
+                        <option 
+                          value="<%= categoria %>"
+                          <%= locals.oldData && (categoria === oldData.categoria) ? 'selected' : null %> 
+                        > <%= categoria %> 
+                        </option>
+                      <% } %>
+                    </select>
+                      
+                    <% if (locals.errors && errors.categoria) { %>
+                      <div class="text-danger">
+                        <%= errors.categoria.msg %>
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+
+                <div class="col-md-6 my-1">
+                  <label class="sr-only" for="inlineFormInputGroup">Precio</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">$</div>
+                    </div>
+
+                    <input 
+                    type="text" 
+                    name="precio" 
+                    class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
+                    <% if(product != null) { %>
+                      value= "<%= product.precio %>" 
+                    <% } else { %>
+                      value="<%= locals.oldData ? oldData.equipo : null %>"
+                    <% } %>
+                    >
+
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">MXN</div>
+                    </div>
+
+                    <% if (locals.errors && errors.precio) { %>
+                      <div class="text-danger">
+                      <%= errors.precio.msg %> 
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 my-1">
+                  <div class="form-group">
+                    <label><b>Imagen de perfil:</b></label>
+                    <input 
+                    type="file" 
+                    name="product"
+                    class="form-control <%= locals.errors && errors.product ? 'is-invalid' : null %>"
+                    >
+    
+                    <% if (locals.errors && errors.product) { %>
+                      <div class="text-danger">
+                        <%= errors.product.msg %>
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+            
+                <div class="col-12 my-3">
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>  
+	<!-- //Register-Form -->
+	
+	<%- include('../partials/footer'); %>
+</body>
+</html>

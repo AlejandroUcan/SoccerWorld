@@ -1,0 +1,73 @@
+/*------------------------------  main -----------------------------*/
+.main-page {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.main-title {
+    font-size: 8vh;
+}
+/*-------------------------------------------------------------------------------------*/
+
+/*----------------------------------  views/index.ejs ---------------------------------*/
+.product-list-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.product-list-items {
+    padding: 20px;
+    margin: 25x;
+}
+
+.product-list-items-img {
+    height: 38vh;
+}
+/*-------------------------------------------------------------------------------------*/
+
+/*------------------------------- views/product/details -------------------------------*/
+.details-page {
+    display: flex;
+    padding: 15vh 40vh;
+    justify-content: center;
+}
+.details-page-img {
+    height: 50vh;
+}
+/*-------------------------------------------------------------------------------------*/
+.profile-page {
+    display: flex;
+    margin: 5px;
+    padding: 5px;
+}
+.profile-options {
+    margin: 20px 40px;
+}
+.profile-options-buttons {
+    height: 8vh;
+}
+
+
+.product-edit-img {
+    margin: 10px;
+    padding: 20px;
+}
+
+.not-found {
+    justify-content: center;
+    width: 80%;
+    margin: 50px;
+    padding: 50px;
+    text-align: center;
+}
+
+.not-found-icon {
+    height: 60vh; 
+}
+
+.create-form-elements {
+    justify-content: end;
+}

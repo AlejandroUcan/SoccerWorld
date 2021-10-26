@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('partials/head'); %>
+  
+  <body>
+	<%- include('partials/navbar'); %>
+	
+	<!-- Container -->
+	<div class="container" style="margin-top: 40px;">
+	  <div class="row">
+		<div class="col-md-3">
+		  <div class="profile-page">  
+			<img src="/images/avatars/<%= user.avatar %> ">
+			<div class="profile-options">
+		      <h2>Bienvenid@</h2>
+			  <h5><%= user.fullName %></h5>		  
+			  <hr>
+			  <img class="profile-options-buttons" src="/images/icons/buttons/user.png">
+			  <a href="/product">
+			    <img class="profile-options-buttons" src="/images/icons/buttons/product.png">
+			  </a>
+			  <img class="profile-options-buttons" src="/images/icons/buttons/cart.png">
+			</div>
+		  </div>
+	  </div>
+	</div>
+	<!-- //Container -->
+	
+	<%- include('partials/footer'); %>
+</body>
+</html>

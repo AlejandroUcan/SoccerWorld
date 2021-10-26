@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  
+  <body>
+    <%- include('../partials/navbar'); %>
+
+    <main class="main-page">  
+      <section>
+        <div>
+          <br>
+          <h2 class="main-title">Listado de productos</h2>
+          <br>
+          <a href="/product/create">
+            <button type="button" class="btn btn-success">Agregar</button>
+          </a>
+        </div>
+        <hr>
+        
+        <div class="product-list-content">
+            <% for (let product of products) { %> 
+              <div class="product-list-items">
+                <a href="/product/<%= product.id %>">
+                  <img class="product-list-items-img" src="/images/products/<%= product.imagen %>" alt="<%= product.imagen %>">
+                </a>
+
+                <hr>
+                <p>
+                  <b><%= product.equipo %></b> 
+                  <br> <%= product.tipo %> <%= product.temporada %>
+                </p>
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <form method="POST" action="/product/<%= product.id %>?_method=DELETE">
+                    <a href="/product/<%= product.id %>/edit">
+                      <button type="button" class="btn btn-warning">Editar</button>
+                    </a>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                  </form>
+                </div>
+                <hr>
+              </div>
+            <% } %>  
+        </div> 
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

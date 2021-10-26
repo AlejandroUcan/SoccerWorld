@@ -1,0 +1,68 @@
+[
+ {
+  "id": 1,
+  "equipo": "Chelsea",
+  "liga": "Premier League",
+  "marca": "Nike",
+  "tipo": "Local",
+  "temporada": "2019/2020",
+  "categoria": "Unisex",
+  "precio": "1200",
+  "imagen": "1635194108213_img.jpg"
+ },
+ {
+  "id": 2,
+  "equipo": "A. de Madrid",
+  "liga": "La Liga",
+  "marca": "Nike",
+  "tipo": "Alternativo",
+  "temporada": "2022/2023",
+  "categoria": "Hombres",
+  "precio": "1500",
+  "imagen": "1635194154970_img.jpg"
+ },
+ {
+  "id": 3,
+  "equipo": "Juventus",
+  "liga": "Calcio",
+  "marca": "Adidas",
+  "tipo": "Alternativo",
+  "temporada": "2021/2022",
+  "categoria": "Mujeres",
+  "precio": "900",
+  "imagen": "1635194576797_img.jpg"
+ },
+ {
+  "id": 4,
+  "equipo": "Bayern Mûnchen",
+  "liga": "Bundesliga",
+  "marca": "Adidas",
+  "tipo": "Local",
+  "temporada": "2020/2021",
+  "categoria": "Niños",
+  "precio": "800",
+  "imagen": "1635194633531_img.jpg"
+ },
+ {
+  "id": 5,
+  "equipo": "LOSC Lille",
+  "liga": "Ligue 1",
+  "marca": "Nike",
+  "tipo": "Local",
+  "temporada": "2018/2019",
+  "categoria": "Unisex",
+  "precio": "700",
+  "imagen": "1635194698767_img.jpg"
+ },
+ {
+  "id": 6,
+  "equipo": "Cruz Azul",
+  "liga": "MLS",
+  "marca": "Adidas",
+  "tipo": "Local",
+  "temporada": "2022/2023",
+  "categoria": "Unisex",
+  "precio": "1800",
+  "imagen": "1635198362084_img.jpg"
+ }
+]

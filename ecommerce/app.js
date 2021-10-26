@@ -1,48 +1,39 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var methodOverride = require('method-override');
+const express = require('express');
+const session = require('express-session');
+const cookies = require('cookie-parser');
+const methodOverride = require('method-override');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products');
-var cartRouter = require('./routes/cart');
+const app = express();
 
-var app = express();
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.use(session({
+	secret: "Shhh, It's a secret",
+	resave: false,
+	saveUninitialized: false,
+}));
 
-app.use(logger('dev'));
-app.use(express.json());
+app.use(cookies());
+app.use(userLoggedMiddleware);
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/products', productsRouter);
-app.use('/cart', cartRouter);
-
+app.listen(3000, () => console.log('Servidor levantado en el puerto 3000'));
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   //next(createError(404));
   res.status(404).render('not-found');
-});
+});*/
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// Template Engine
+app.set('view engine', 'ejs');
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+// Routers
+const mainRoutes = require('./routes/mainRoutes');
+const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
 
-module.exports = app;
+app.use('/', mainRoutes);
+app.use('/user', userRoutes);
+app.use('/product', productRoutes);
