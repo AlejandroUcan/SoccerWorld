@@ -1,7 +1,7 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
-const User = require('../models/User');
+const db = require('../database/models');
 
 const controller = {
   register: (req, res) => {
@@ -17,7 +17,7 @@ const controller = {
 			});
 		}
 
-		let userInDB = User.findByField('email', req.body.email);
+		//let userInDB = User.findByField('email', req.body.email);
 
 		if (userInDB) {
 			return res.render('userRegisterForm', {
@@ -30,13 +30,13 @@ const controller = {
 			});
 		}
 
-		let userToCreate = {
-			...req.body,
+		db.Usuario.create({
+            nombre: req.body.fullName,
+			email: req.body.email,
 			password: bcryptjs.hashSync(req.body.password, 10),
+			estado: req.body.country,
 			avatar: req.file.filename
-		}
-
-		let userCreated = User.create(userToCreate);
+		})
 
 		return res.redirect('/user/login');
 	},

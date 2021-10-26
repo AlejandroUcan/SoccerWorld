@@ -20,14 +20,14 @@
         <div class="product-list-content">
             <% for (let product of products) { %> 
               <div class="product-list-items">
-                <a href="/product/<%= product.id %>">
-                  <img class="product-list-items-img" src="/images/products/<%= product.imagen %>" alt="<%= product.imagen %>">
+                <a href="/product/<%= product.dataValues.id %>">
+                  <img class="product-list-items-img" src="/images/products/<%= product.dataValues.imagen %>" alt="<%= product.dataValues.imagen %>">
                 </a>
 
                 <hr>
                 <p>
-                  <b><%= product.equipo %></b> 
-                  <br> <%= product.tipo %> <%= product.temporada %>
+                  <b><%= product.dataValues.equipo %></b> 
+                  <br> <%= product.dataValues.tipo %> <%= product.dataValues.temporada %>
                 </p>
 
                 <div class="btn-group" role="group" aria-label="Basic example">

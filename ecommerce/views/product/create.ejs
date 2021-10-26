@@ -182,7 +182,7 @@
             </div>
 
             <div class="col-md-6 my-1">
-              <label class="sr-only" for="inlineFormInputGroup">Precio</label>
+              <label class="sr-only" for="inlineFormInputGroup"><b>Precio</b></label>
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
                   <div class="input-group-text">$</div>
@@ -213,13 +213,13 @@
                 <label><b>Imagen de perfil:</b></label>
                 <input 
                 type="file" 
-                name="product"
-                class="form-control <%= locals.errors && errors.product ? 'is-invalid' : null %>"
+                name="imagen"
+                class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>"
                 >
 
-                <% if (locals.errors && errors.product) { %>
+                <% if (locals.errors && errors.imagen) { %>
                   <div class="text-danger">
-                    <%= errors.product.msg %>
+                    <%= errors.imagen.msg %>
                   </div>
                 <% } %>
               </div>

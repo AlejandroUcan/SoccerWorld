@@ -50,6 +50,9 @@
     height: 8vh;
 }
 
+.profile-page-avatar {
+    height: 50vh;
+}
 
 .product-edit-img {
     margin: 10px;

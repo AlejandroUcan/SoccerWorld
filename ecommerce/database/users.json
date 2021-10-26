@@ -6,5 +6,21 @@
   "password": "$2a$10$1ySeAlQKlm4P7NHpJbeb8ecrPSgihAcw0y8f0IxL3VgBw1uA67zEi",
   "country": "Argentina",
   "avatar": "1635115671672_img.jpg"
+ },
+ {
+  "id": 2,
+  "fullName": "Luis Tun",
+  "email": "luistun@outlook.com",
+  "password": "$2a$10$3iv7AeLBizCcPlfEZqZBYelhvIML8Yqwo5UeQyZfOroJqHYN4VJrO",
+  "country": "Ciudad de México",
+  "avatar": "1635251041008_img.jpg"
+ },
+ {
+  "id": 3,
+  "fullName": "Luis Tun",
+  "email": "luistun2020@outlook.com",
+  "password": "$2a$10$sQ8FLumZCuxGUoWqWasQcOvKdRHfJl.ebeycXtbVhLwy4qLl1O1qe",
+  "country": "Durango",
+  "avatar": "1635251633050_img.jpg"
  }
 ]
