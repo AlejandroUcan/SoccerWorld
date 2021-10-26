@@ -9,6 +9,13 @@ Impedimentos - Uso óptimo de ejs
 Soluciones - Consultar recursos en Playground
 
 Conclusiones del Sprint 4
+Impresiones
 Positivo - Se pueden compartir ideas por medio de las reuniones
 Neutra - No se pudo dialogar por la falta de participantes 
 Negativa - Se requiere de más de un integrante
+
+Conclusiones del Sprint 5
+Impresiones
+Positivo - Se pueden obtener recursos adaptables al proyecto
+Neutra - Es importante el uso de modelos 
+Negativa - Ninguna

@@ -13,3 +13,9 @@ Inicio de Sprint5 - Retroalimentación del sprint4
 En el cuarto sprint se logró el CRUD de productos, por medio de funciones de array, además de
 la obtención de datos por EJS
 
+Inicio de Sprint6 - Retroalimentación del sprint5
+En el quinto sprint se lograron las consignas, primero se adaptó el CRUD de usuarios al proyecto, al fusionar el recurso
+con el contenido ya desarrollado, además de la mejora en la visualización de los productos y se optimizó el CRUD de 
+productos, mediante el uso de modelos
+
+
