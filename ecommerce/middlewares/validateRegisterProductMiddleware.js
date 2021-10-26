@@ -9,7 +9,7 @@ module.exports = [
     body('temporada').notEmpty().withMessage('Debe elegir la temporada del jersey'),
     body('categoria').notEmpty().withMessage('Debe elegir la categoria del produto'),
     body('precio').notEmpty().withMessage('Debe escribir el precio del producto'),
-    body('product').custom((value, { req }) => {
+    body('imagen').custom((value, { req }) => {
 		let file = req.file;
 		let acceptedExtensions = ['.jpg', '.png', '.gif'];
 

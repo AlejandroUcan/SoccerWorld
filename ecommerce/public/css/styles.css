@@ -74,3 +74,8 @@
 .create-form-elements {
     justify-content: end;
 }
+
+.details-panel {
+    padding: 5px 20px;
+    margin: 5px 30px;
+}

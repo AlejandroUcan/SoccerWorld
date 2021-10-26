@@ -1,7 +1,6 @@
 const { validationResult } = require('express-validator');
 
 const db = require('../database/models');
-const Product = require('../models/Product');
 
 const controller = {
   list: (req, res) => {    
@@ -12,10 +11,11 @@ const controller = {
   },
   details: (req, res) => {
     let idProductDetails = req.params.id;
-    let productFound = db.Producto.findByPk({
-      where: { id: idProductDetails}
-    });
-    res.render('product/details', {product: productFound})
+
+    db.Producto.findByPk(idProductDetails)
+      .then(resultados => {
+        res.render('product/details', {product: resultados})
+      })
   },
   create: (req, res) => {
     res.render('product/create');
@@ -44,39 +44,49 @@ const controller = {
     return res.redirect('/user/profile');
   },
   edit: (req, res) => {
-    let id = req.params.id;
-    let productFound = Product.findByPk(id);
-    res.render('product/edit', {product: productFound})
+    let idProductEdit = req.params.id;
+
+    db.Producto.findByPk(idProductEdit)
+      .then(resultados => {
+        res.render('product/edit', { productId: idProductEdit, product: resultados })
+      })
   },
+
   update: (req, res) => {
     let idProductUpdate = req.params.id;
-
     const resultValidation = validationResult(req);
-    if (resultValidation.errors.length > 0) {
-			return res.render('product/edit', {
-        product: productFound,
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
-		}
-    
-    db.Producto.update(
-      {
-        equipo: req.body.equipo,
-        liga: req.body.liga,
-        marca: req.body.marca,
-        tipo: req.body.tipo,
-        temporada: req.body.temporada,
-        categoria: req.body.categoria,
-        precio: req.body.precio,
-        imagen:  req.file.filename
-      }, 
-      {
-        where: { id: idProductUpdate}
-      }
-    );
 
-    return res.redirect('/user/profile');
+		if (resultValidation.errors.length > 0) {
+      console.log('SIGUE HBIENDO EROORES');
+      db.Producto.findByPk(idProductUpdate)
+        .then(resultados => {
+          res.render('product/edit', {
+            productId: idProductUpdate,
+            product: resultados,
+            errors: resultValidation.mapped(),
+            oldData: req.body
+          });
+        })
+		} else {
+      console.log('PROCESO DE CTULICION');
+      db.Producto.update(
+        {
+          equipo: req.body.equipo,
+          liga: req.body.liga,
+          marca: req.body.marca,
+          tipo: req.body.tipo,
+          temporada: req.body.temporada,
+          categoria: req.body.categoria,
+          precio: req.body.precio,
+          imagen:  req.file.filename
+        }, 
+        {
+          where: { id: idProductUpdate}
+        }
+      );
+    
+      res.redirect('/user/profile');
+    }
   },
   delete: (req, res) => {
     let idProductDelete = req.params.id;

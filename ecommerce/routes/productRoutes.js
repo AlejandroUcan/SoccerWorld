@@ -20,7 +20,7 @@ router.post('/', uploadFile.single('imagen'), validations, productController.pro
 /* GET Formulario de edición de productos. */
 router.get('/:id/edit', productController.edit);
 /* PUT Acción de edición (a donde se envía el formulario). */
-router.put('/:id', uploadFile.single('product'), validations, productController.update);
+router.put('/:id', uploadFile.single('imagen'), validations, productController.update);
 /* DELETE Acción de borrado. */
 router.delete('/:id', productController.delete);
 

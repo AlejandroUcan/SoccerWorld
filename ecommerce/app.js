@@ -21,10 +21,6 @@ app.use(methodOverride('_method'));
 
 app.listen(3000, () => console.log('Servidor levantado en el puerto 3000'));
 // catch 404 and forward to error handler
-/*app.use(function(req, res, next) {
-  //next(createError(404));
-  res.status(404).render('not-found');
-});*/
 
 // Template Engine
 app.set('view engine', 'ejs');

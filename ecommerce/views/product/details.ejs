@@ -10,7 +10,7 @@
 	  <%- include('../partials/aside'); %>
 		
 	  <section class="details-page">
-	    <article>
+	    <article class="details-panel">
         <div>
           <h2><b><%= product.equipo %></b></h2>
         <br>
@@ -18,7 +18,7 @@
         </div>
       </article>
 
-		<article>
+		<article class="details-panel">
 		  <h3><%= product.tipo %> <%= product.temporada %></h3>
 		  <h5><%= product.marca %></h5> 
 		  <h5>$ <%= product.precio %> MXN</h5>
@@ -34,7 +34,7 @@
             </label>
             <label class="btn btn-secondary">
               <input type="radio" name="options" id="option3" autocomplete="off"> M
-			</label>
+			      </label>
             <label class="btn btn-secondary">
               <input type="radio" name="options" id="option3" autocomplete="off"> L
             </label>
