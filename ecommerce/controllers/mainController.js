@@ -1,9 +1,15 @@
-const Product = require('../models/Product');
+const db = require('../database/models');
 
 const controller = {
   index: (req, res) => {
-	  let productsInDB = Product.findAll();
-    res.render('index', { products: productsInDB });
+    db.Producto.findAll({
+      /*where: {
+        marca: 'Nike'
+      }, */
+      limit: 10
+    }).then(resultados => {
+      res.render('index', { products: resultados });
+    })
   }
 }
 

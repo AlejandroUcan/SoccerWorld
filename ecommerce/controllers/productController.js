@@ -51,13 +51,11 @@ const controller = {
         res.render('product/edit', { productId: idProductEdit, product: resultados })
       })
   },
-
   update: (req, res) => {
     let idProductUpdate = req.params.id;
     const resultValidation = validationResult(req);
 
 		if (resultValidation.errors.length > 0) {
-      console.log('SIGUE HBIENDO EROORES');
       db.Producto.findByPk(idProductUpdate)
         .then(resultados => {
           res.render('product/edit', {
@@ -68,9 +66,7 @@ const controller = {
           });
         })
 		} else {
-      console.log('PROCESO DE CTULICION');
-      db.Producto.update(
-        {
+      db.Producto.update({
           equipo: req.body.equipo,
           liga: req.body.liga,
           marca: req.body.marca,
@@ -96,6 +92,16 @@ const controller = {
      }  
     )
     return res.redirect('/user/profile');
+  },
+  filtro: (req, res) => {
+    let filtroProducto = req.body.search;
+    db.Producto.findAll({
+      where: {
+        equipo: filtroProducto 
+      }, 
+    }).then(resultados => {
+      res.render('index', { products: resultados });
+    })
   }
 }
 

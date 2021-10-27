@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('partials/head'); %>
+  
+  <body>
+    <%- include('partials/navbar'); %>
+	
+	<!-- Register-Form -->
+	<div class="container my-5">
+	  <div class="row justify-content-center">
+		<div class="col-md-10">
+		  <h2>Edición</h2>
+	
+		  <form method="POST" action="/user/<%= locals.userId %>?_method=PUT" enctype="multipart/form-data">
+			<div class="row">
+			  <div class="col-md-6 my-1">
+				<div class="form-group">
+				  <label><b>Nombre de usuario:</b></label>
+				  <input 
+					type="text" 
+					name="fullName" 
+					class="form-control <%= locals.errors && errors.fullName ? 'is-invalid' : null %>"
+					value="<%= locals.oldData ? oldData.fullName : user.nombre %>"
+				  >
+				  
+				  <% if (locals.errors && errors.fullName) { %>
+				    <div class="text-danger">
+					  <%= errors.fullName.msg %> 
+				    </div>
+				  <% } %>
+				</div>
+			  </div>
+			  
+			  <div class="col-md-6 my-1">
+			    <div class="form-group">
+				  <label><b>Correo electrónico:</b></label>
+				  <input 
+					type="text" 
+					name="email" 
+					class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+					value="<%= locals.oldData ? oldData.email : user.email %>"
+				  >
+								
+				  <% if (locals.errors && errors.email) { %>
+				    <div class="text-danger">
+					  <%= errors.email.msg %>
+				    </div>
+				  <% } %>
+				</div>			
+			  </div>
+						
+			  <div class="col-md-6 my-1">
+				<div class="form-group">
+				  <label><b>Contraseña:</b></label>
+				  <input 
+					type="password" 
+					name="password" 
+					class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+					value="<%= locals.oldData ? oldData.password : user.password %>"
+				  >
+								
+				  <% if (locals.errors && errors.password) { %>
+					<div class="text-danger">
+					  <%= errors.password.msg %>
+					</div>
+				  <% } %>
+				</div>
+			  </div>
+			
+			  <div class="col-md-6 my-1">
+				<div class="form-group">
+				  <label><b>Estado:</b></label>
+				  <select 
+					name="country" 
+					class="form-select <%= locals.errors && errors.country ? 'is-invalid' : null %>"
+				  >
+					
+					<option value="">Elegí un Estado</option>
+					<%  
+						let estados = ['Aguascalientes', 'Baja California', 'Baja California Sur', 'Campeche', 
+						'Chiapas', 'Chihuahua', 'Coahuila', 'Colima', 'Ciudad de México', 'Durango', 'Guanajuato',
+						'Guerrero', 'Hidalgo', 'Jalisco', 'Estado de Mexico', 'Michoacan', 'Morelos',
+						'Nayarit', 'Nuevo Leon', 'Oaxaca', 'Puebla', 'Queretaro', 'Quintana Roo', 'San Luis Potosi',
+						'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas', 'Tlaxcala', 'Veracruz', 'Yucatan', 'Zacatecas'];
+					%>
+					<% for (const estado of estados) { %>
+						<option 
+						value="<%= estado %>"
+						
+						<% if(locals.oldData) { %>
+							<%= (estado === oldData.country) ? 'selected' : null %> 
+						<% } else { %>
+							<%= (estado === user.estado) ? 'selected' : null %> 
+						<% } %>
+
+						> <%= estado %> </option>
+					<% } %>
+				  </select>
+				  <% if (locals.errors && errors.country) { %>
+					<div class="text-danger">
+					  <%= errors.country.msg %>
+					</div>
+				  <% } %>
+				</div>
+			  </div>
+						
+			  <div class="col-md-6 my-1">
+				<div class="form-group">
+				  <label><b>Imagen de perfil:</b></label>
+				  <input 
+					type="file" 
+					name="avatar"
+					class="form-control <%= locals.errors && errors.avatar ? 'is-invalid' : null %>"
+				  >
+				  <% if (locals.errors && errors.avatar) { %>
+					<div class="text-danger">
+					  <%= errors.avatar.msg %>
+					</div>
+				  <% } %>
+				</div>
+			  </div>
+						
+			  <div class="col-12 my-3">
+			    <button type="submit" class="btn btn-primary">Actualizar</button>
+			  </div>
+			</div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+	<!-- //Register-Form -->
+	
+	<%- include('partials/footer'); %>
+</body>
+</html>

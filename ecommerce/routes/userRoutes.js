@@ -28,4 +28,10 @@ router.get('/profile/', authMiddleware, usersController.profile);
 // Logout
 router.get('/logout/', usersController.logout);
 
+// Formulario de modificación
+router.get('/:id/edit', usersController.edit);
+
+// Procesar la actualización
+router.put('/:id', uploadFile.single('avatar'), validations, usersController.update);
+
 module.exports = router;

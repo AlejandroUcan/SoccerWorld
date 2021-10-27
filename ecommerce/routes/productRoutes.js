@@ -23,5 +23,7 @@ router.get('/:id/edit', productController.edit);
 router.put('/:id', uploadFile.single('imagen'), validations, productController.update);
 /* DELETE Acción de borrado. */
 router.delete('/:id', productController.delete);
+/* GET Listado de productos por filtro */
+router.post('/search', productController.filtro);
 
 module.exports = router;

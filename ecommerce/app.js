@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 
 const app = express();
 
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+//const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 app.use(session({
 	secret: "Shhh, It's a secret",
@@ -14,7 +14,7 @@ app.use(session({
 }));
 
 app.use(cookies());
-app.use(userLoggedMiddleware);
+//app.use(userLoggedMiddleware);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));

@@ -13,9 +13,13 @@
 			<img class="profile-page-avatar" src="/images/avatars/<%= user.avatar %> ">
 			<div class="profile-options">
 		      <h2>Bienvenid@</h2>
-			  <h5><%= user.fullName %></h5>		  
 			  <hr>
-			  <img class="profile-options-buttons" src="/images/icons/buttons/user.png">
+			  <h5><%= user.nombre %></h5>
+			  <h6><%= user.estado %></h6>		  
+			  <hr>
+			  <a href="/user/<%= user.id %>/edit">
+				<img class="profile-options-buttons" src="/images/icons/buttons/user.png">
+			  </a>
 			  <a href="/product">
 			    <img class="profile-options-buttons" src="/images/icons/buttons/product.png">
 			  </a>
