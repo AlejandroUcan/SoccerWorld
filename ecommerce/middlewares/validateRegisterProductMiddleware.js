@@ -2,7 +2,9 @@ const path = require('path');
 const { body } = require('express-validator');
 
 module.exports = [
-	body('equipo').notEmpty().withMessage('Debe escribir el nombre del equipo'),
+	body('equipo')
+	    .notEmpty().withMessage('Debe escribir el nombre del equipo').bail()
+		.isLength({ min: 5 }).withMessage('Debes ingresar un nombre de producto más largo'),
     body('liga').notEmpty().withMessage('Debe elegir la liga donde juega el equipo'),
     body('marca').notEmpty().withMessage('Debe elegir la marca patrocinadora'),
     body('tipo').notEmpty().withMessage('Debe elegir el tipo del jersey'),
