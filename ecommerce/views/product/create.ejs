@@ -12,17 +12,19 @@
 		    <h2>Registro de producto</h2>
         <hr>
 	
-		    <form method="POST" action="/product" enctype="multipart/form-data">
+		    <form id="productRegisterForm" method="POST" action="/product" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-6 my-1">
               <div class="form-group">
                 <label><b>Equipo:</b></label>
                 <input 
+                id="productEquipo"
                 type="text" 
                 name="equipo" 
                 class="form-control <%= locals.errors && errors.equipo ? 'is-invalid' : null %>"
                 value="<%= locals.oldData ? oldData.equipo : null %>"
                 >
+                <i id="equipoErrorMessage" class="text-danger"></i>
                 
                 <% if (locals.errors && errors.equipo) { %>
                   <div class="text-danger">
@@ -36,6 +38,7 @@
               <div class="form-group">
                 <label><b>Liga:</b></label>
                 <select 
+                  id= "productLiga"
                   name="liga" 
                   class="form-select <%= locals.errors && errors.liga ? 'is-invalid' : null %>"
                   >
@@ -52,6 +55,7 @@
                     > <%= liga %> </option>
                   <% } %>
                 </select>
+                <i id="ligaErrorMessage" class="text-danger"></i>
 
                 <% if (locals.errors && errors.liga) { %>
                   <div class="text-danger">
@@ -65,6 +69,7 @@
               <div class="form-group">
                 <label><b>Marca:</b></label>
                 <select 
+                  id="productMarca"
                   name="marca" 
                   class="form-select <%= locals.errors && errors.marca ? 'is-invalid' : null %>"
                 >
@@ -82,7 +87,8 @@
                     </option>
                   <% } %>
                 </select>
-                  
+                <i id="marcaErrorMessage" class="text-danger"></i>
+
                 <% if (locals.errors && errors.marca) { %>
                   <div class="text-danger">
                     <%= errors.marca.msg %>
@@ -95,6 +101,7 @@
               <div class="form-group">
                 <label><b>Tipo:</b></label>
                 <select 
+                  id="productTipo"
                   name="tipo" 
                   class="form-select <%= locals.errors && errors.tipo ? 'is-invalid' : null %>"
                 >
@@ -112,6 +119,7 @@
                     </option>
                   <% } %>
                 </select>
+                <i id="tipoErrorMessage" class="text-danger"></i>
                   
                 <% if (locals.errors && errors.tipo) { %>
                   <div class="text-danger">
@@ -125,6 +133,7 @@
               <div class="form-group">
                 <label><b>Temporada:</b></label>
                 <select 
+                  id="productTemporada"
                   name="temporada" 
                   class="form-select <%= locals.errors && errors.temporada ? 'is-invalid' : null %>"
                 >
@@ -142,6 +151,7 @@
                     </option>
                   <% } %>
                 </select>
+                <i id="temporadaErrorMessage" class="text-danger"></i>
                   
                 <% if (locals.errors && errors.temporada) { %>
                   <div class="text-danger">
@@ -155,6 +165,7 @@
               <div class="form-group">
                 <label><b>Categoría:</b></label>
                 <select 
+                  id="productCategoria"
                   name="categoria" 
                   class="form-select <%= locals.errors && errors.tipo ? 'is-invalid' : null %>"
                 >
@@ -172,6 +183,7 @@
                     </option>
                   <% } %>
                 </select>
+                <i id="categoriaErrorMessage" class="text-danger"></i>
                   
                 <% if (locals.errors && errors.categoria) { %>
                   <div class="text-danger">
@@ -189,6 +201,7 @@
                 </div>
 
                 <input 
+                id="productPrecio"
                 type="text" 
                 name="precio" 
                 class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
@@ -199,6 +212,7 @@
                   <div class="input-group-text">MXN</div>
                 </div>
               </div>
+              <i id="precioErrorMessage" class="text-danger"></i>
 
                 <% if (locals.errors && errors.precio) { %>
                   <div class="text-danger">
@@ -236,5 +250,7 @@
 	<!-- //Register-Form -->
 	
 	<%- include('../partials/footer'); %>
+
+  <script src="/js/validateRegisterProductScript.js"></script>
 </body>
 </html>

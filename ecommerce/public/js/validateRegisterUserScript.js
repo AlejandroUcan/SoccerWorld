@@ -2,19 +2,21 @@ window.addEventListener('load', function(){
   let userRegisterForm = document.querySelector('#userRegisterForm');
   userRegisterForm.addEventListener('submit', function(e){
     e.preventDefault();
+    let errores = [];
 
     let userName = document.querySelector('#userName');
     let nameErrorMessage = document.querySelector('#nameErrorMessage');
     nameErrorMessage.innerText = '';
-
     if(userName.value == '') {
       userName.classList.remove('is-valid');
       userName.classList.add('is-invalid');
-      nameErrorMessage.innerText = 'El campo nombre no debe estar vacío'; 
+      nameErrorMessage.innerText = 'El campo nombre no debe estar vacío';
+      errores.push('El campo nombre no debe estar vacío');
     } else if(userName.value.length < 2) {
       userName.classList.remove('is-valid');
       userName.classList.add('is-invalid');
       nameErrorMessage.innerText = 'El campo nombre debe tener al menos 2 caracteres';       
+      errores.push('El campo nombre debe tener al menos 2 caracteres');
     } else {
       userName.classList.remove('is-invalid');
       userName.classList.add('is-valid');
@@ -29,6 +31,7 @@ window.addEventListener('load', function(){
         userEmail.classList.remove('is-valid');
         userEmail.classList.add('is-invalid');
         emailErrorMessage.innerText = 'El campo email no debe estar vacío'; 
+        errores.push('El campo email no debe estar vacío');
     } else {
       let correo = ['@gmail.com', '@outlook.com', '@mail.com', '@correo.com'];
       let email = userEmail.value;
@@ -43,7 +46,8 @@ window.addEventListener('load', function(){
       if(emailValidator == 0) {
         userEmail.classList.remove('is-valid');
         userEmail.classList.add('is-invalid');
-        emailErrorMessage.innerText = 'Debe ingresar un email con formato válido'; 
+        emailErrorMessage.innerText = 'Debe ingresar un email con formato válido';
+        errores.push('Debe ingresar un email con formato válido'); 
       } else {
         userEmail.classList.remove('is-invalid');
         userEmail.classList.add('is-valid');
@@ -58,10 +62,12 @@ window.addEventListener('load', function(){
       userPassword.classList.remove('is-valid');
       userPassword.classList.add('is-invalid');
       passwordErrorMessage.innerText = 'El campo password no debe estar vacío';
+      errores.push('El campo password no debe estar vacío');
     } else if (userPassword.value.length < 8) {
       userPassword.classList.remove('is-valid');
       userPassword.classList.add('is-invalid');
       passwordErrorMessage.innerText = 'El campo password debe tener al menos 8 caracteres';
+      errores.push('El campo password debe tener al menos 8 caracteres');
     } else {
       userPassword.classList.remove('is-invalid');
       userPassword.classList.add('is-valid');
@@ -78,6 +84,15 @@ window.addEventListener('load', function(){
     } else {
       userState.classList.remove('is-invalid');
       userState.classList.add('is-valid');
+    }
+
+
+    if(!errores.length > 0) {
+      userRegisterForm.submit();
+      nameErrorMessage.innerText = '';
+      emailErrorMessage.innerText = '';
+      passwordErrorMessage.innerText = '';
+      stateErrorMessage.innerText = '';
     }
   })
 })
