@@ -23,4 +23,8 @@ En el sexto sprint se lograron todos las consignas, aunque la migración de JSON
 se presentaron problemas principalmente en el login, ya que, el uso de cookies se vio comprometido por la
 migracion, se debió consultar la documentación en línea, lo cual es algo que se mantendrán en consideración.     
 
+Inicio de Sprint8 - Conclusiones del sprint7
+En el séptimo sprint el principal problema fue el input de tipo file, ya que no se completó
+su verificación vía frontend, respecto a ello se establecen las consultas en línea más necesarias y por ende
+una práctica a tomar en cuenta. 
 

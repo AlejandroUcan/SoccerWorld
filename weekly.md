@@ -22,3 +22,8 @@ Impresiones del Sprint6
 Positiva - Se pudo completar el CRUD desde BD
 Neutra - Se pudo lograr la migración de JSON a MySQL
 Negativa - Se comprometió el uso de cookies
+
+Impresiones del Sprint7
+Positiva - Se completó en gran parte la verificación vía frontend
+Neutra - Se pudo hacer uso de scripts que manipulan los componentes 
+Negativa - Se aplazó la verificación del input File 
