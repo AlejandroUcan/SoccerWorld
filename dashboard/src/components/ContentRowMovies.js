@@ -1,50 +1,85 @@
 import React from 'react';
 import SmallCard from './SmallCard';
 
-/*  Cada set de datos es un objeto literal */
+class ContentRowMovies extends React.Component  {
+  constructor(props){
+    super(props);
+    this.state = {
+      productNumber: '',
+      userNumber: '',
+    }
+  }
 
-/* <!-- Movies in DB --> */
+  apiCallProduct(url) {
+    fetch(url) 
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+            productNumber: data.total
+        })
+        console.log(data.data)
+      })
+      .catch(error => console.log(error))
+  }
 
-let moviesInDB = {
-    title: 'Movies in Data Base',
-    color: 'primary', 
-    cuantity: 21,
-    icon: 'fa-clipboard-list'
-}
+  
+  apiCallUser(url) {
+    fetch(url) 
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+            userNumber: data.total
+        })
+        console.log(data.data)
+      })
+      .catch(error => console.log(error))
+  }
 
-/* <!-- Total awards --> */
+  obtenerNumProducto() {
+    this.apiCallProduct('http://localhost:8080/api/products')
+  }
 
-let totalAwards = {
-    title:' Total awards', 
-    color:'success', 
-    cuantity: '79',
-    icon:'fa-award'
-}
+  obtenerNumUsuario() {
+    this.apiCallUser('http://localhost:8080/api/users')
+  }
 
-/* <!-- Actors quantity --> */
+  componentDidMount() {
+    this.obtenerNumProducto()
+    this.obtenerNumUsuario()
+  }
 
-let actorsQuantity = {
-    title:'Actors quantity' ,
-    color:'warning',
-    cuantity:'49',
-    icon:'fa-user-check'
-}
+  render() {
+    let cartProps;
 
-let cartProps = [moviesInDB, totalAwards, actorsQuantity];
+    if((this.state.productNumber != '') && (this.state.userNumber != '')) {
+      let productsInDB = {
+        title: 'Produtos en Base de Datos',
+        color: 'primary', 
+        cuantity: this.state.productNumber,
+        icon: 'fa-clipboard-list'
+      }
+      let usersInDB = {
+        title:'Usuarios en Base de datos' ,
+        color:'warning',
+        cuantity: this.state.userNumber,
+        icon:'fa-user-check'
+      }
 
-function ContentRowMovies(){
+      cartProps = [productsInDB, usersInDB]; 
+    } else {
+      cartProps = [];
+    }
+
     return (
-    
-        <div className="row">
-            
-            {cartProps.map( (movie, i) => {
-
-                return <SmallCard {...movie} key={i}/>
-            
-            })}
-
-        </div>
-    )
+      <div className="row justify-content-center">
+        {cartProps.map( (movie, i) => {
+          return <SmallCard {...movie} key={i}/>    
+        })}
+      </div>
+    );
+  }
 }
 
 export default ContentRowMovies;
+
+  

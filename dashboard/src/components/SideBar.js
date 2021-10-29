@@ -1,10 +1,16 @@
 import React from 'react';
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './GenresInDb';
-import LastMovieInDb from './LastMovieInDb';
-import ContentRowMovies from './ContentRowMovies';
-import NotFound from './NotFound';
 import {Link, Route, Switch} from 'react-router-dom';
+
+
+import ContentRowMovies from './ContentRowMovies';
+import UserChart from './UserChart';
+import ProductChart from './ProductChart';
+import LastUserInDb from './LastUserInDb';
+import LastProductInDb from './LastProductInDb';
+import LeaguesInDb from './LeaguesInDb';
+import BrandsInDb from './BrandsInDb';
+import NotFound from './NotFound';
 
 function SideBar(){
     return(
@@ -18,36 +24,60 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - Soocer World</span></Link>
+                        <span>Dashboard - SoccerWorld</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider"/>
 
                 {/*<!-- Heading -->*/}
-                <div className="sidebar-heading">Actions</div>
+                <div className="sidebar-heading">Componentes</div>
 
-                {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                <Link className="nav-link" to="/GenresInDb">
-                        <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
-                    </Link>
+                    <Link className="nav-link" to="/ContentRowMovies">
+                        <i className="fas fa-fw fa-chart-area"></i>
+                        <span>Tabla</span></Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link className="nav-link" to="/UserChart">
+                        <i className="fas fa-fw fa-chart-area"></i>
+                        <span>Tabla - Usuarios</span></Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link className="nav-link" to="/ProductChart">
+                        <i className="fas fa-fw fa-chart-area"></i>
+                        <span>Tabla - Productos</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
+                    <Link className="nav-link" to="/LastUserInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Registros Usuarios</span></Link>
                 </li>
 
-                {/*<!-- Nav Item - Tables -->*/}
-                <li className="nav-item nav-link">
-                <Link className="nav-link" to="/ContentRowMovies">
-                        <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/LastProductInDb">
+                        <i className="fas fa-fw fa-chart-area"></i>
+                        <span>Registros Productos</span></Link>
                 </li>
+
+                {/*<!-- Nav Item - Pages -->*/}
+                <li className="nav-item">
+                <Link className="nav-link" to="/LeaguesInDb">
+                        <i className="fas fa-fw fa-folder"></i>
+                        <span>Categoría - Liga</span>
+                    </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/BrandsInDb">
+                        <i className="fas fa-fw fa-folder"></i>
+                        <span>Categoría - Marca</span>
+                    </Link>
+                </li>
+                
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
@@ -74,15 +104,35 @@ function SideBar(){
                 <Route exact path="/">
                     <ContentWrapper />
                 </Route>
-                <Route path="/GenresInDb">
-                    <GenresInDb />
-                </Route>
-                <Route path="/LastMovieInDb">
-                    <LastMovieInDb />
-                </Route>
+                
                 <Route path="/ContentRowMovies">
-                    <ContentRowMovies />
+                  <ContentRowMovies />
                 </Route>
+
+                <Route path="/UserChart">
+                  <UserChart />
+                </Route>
+
+                <Route path="/ProductChart">
+                  <ProductChart />
+                </Route>
+                
+                <Route path="/LastUserInDb">
+                    <LastUserInDb />
+                </Route>
+               
+                <Route path="/LastProductInDb">
+                    <LastProductInDb />
+                </Route>
+
+                <Route path="/LeaguesInDb">
+                    <LeaguesInDb />
+                </Route>
+
+                <Route path="/BrandsInDb">
+                    <BrandsInDb />
+                </Route>
+
                 <Route component={NotFound} />
             </Switch>
             {/*<!-- End Microdesafio 2 -->*/}

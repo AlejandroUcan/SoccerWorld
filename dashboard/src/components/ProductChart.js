@@ -1,8 +1,8 @@
 import React from 'react';
-import ChartRow from './ChartRow';
+import ProductChartRow from './ProductChartRow';
 
 
-class Chart extends React.Component  {
+class UserChart extends React.Component  {
   constructor(props){
     super(props);
     this.state = {
@@ -24,15 +24,11 @@ class Chart extends React.Component  {
   }
 
   actualizarRegistros() {
-      this.apiCall('http://localhost:8080/api/users')
+      this.apiCall('http://localhost:8080/api/products')
   }
 
   componentDidMount() {
     this.actualizarRegistros()
-  }
-
-  componentDidUpdate() {
-    alert("Se han actualizado los registros")
   }
 
   render() {
@@ -40,7 +36,7 @@ class Chart extends React.Component  {
     if(this.state.productList == '') {
       contenido = <p>Sin registros...</p>
     } else {
-      contenido = <tbody> { this.state.productList.map( ( row , i) => { return <ChartRow { ...row} key={i}/> }) } </tbody>    
+      contenido = <tbody> { this.state.productList.map( ( row , i) => { return <ProductChartRow { ...row} key={i}/> }) } </tbody>    
     }
 
     return (
@@ -52,10 +48,11 @@ class Chart extends React.Component  {
               <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Estado</th>
+                    <th>Equipo</th>
+                    <th>Liga</th>
+                    <th>Marca</th>
+                    <th>Tipo</th>
+                    <th>Temporada</th>
                   </tr>
                 </thead>
                 
@@ -69,4 +66,4 @@ class Chart extends React.Component  {
   }
 }
 
-export default Chart;
+export default UserChart;
