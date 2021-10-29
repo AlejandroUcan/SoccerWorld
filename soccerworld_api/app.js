@@ -14,4 +14,4 @@ app.use((req, res, next) => {
 const apiRoutes = require('./routes/apiRoutes');
 app.use('/api', apiRoutes);
 
-app.listen(8080, ()=> {console.log('')});
+app.listen(8080, ()=> {console.log('Servidor Api corriendo en el puerto 8080')});

@@ -1,8 +1,8 @@
 const db = require('../database/models');
-const Op = db.Sequelize.Op;
 
 module.exports = { 
   list: (req, res) => {
+    console.log('list');
     db.Usuario
       .findAll()
         .then(users => {
@@ -11,17 +11,36 @@ module.exports = {
             data: users,
             status: 200
           })
-        })
+        })    
   }, 
-  details:() => {
+  details: (req, res) => {
+    console.log('details');
+    let userId = req.params.id;
     db.Usuario
-    .findAll()
-      .then(users => {
+    .findByPk(userId)
+      .then(user => {
         return res.status(200).json({
-          total: users.length,
-          data: users,
+          nombre: user.nombre,
+          email: user.email,
+          avatar: 'http://localhost:3000/images/avatars/' + user.avatar,
           status: 200
         })
       })
-  }
+  },
+  last: (req, res) => {
+    console.log('Last');
+    db.Usuario
+      .findAll({
+        order: [
+          ['id', 'DESC'],
+        ],
+        limit: 1
+      })
+      .then(user => {
+        return res.status(200).json({
+          data: user,
+          status: 200
+        })
+      })
+  },  
 }
